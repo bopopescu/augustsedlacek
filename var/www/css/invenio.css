@@ -1,0 +1,110 @@
+x#bibEditTable {table-layout: auto !important;}
+#rowGroup_003_0, #rowGroup_005_0, #rowGroup_008_0, #boxField_001_0 {display: none;}
+#rowGroup_001_0 {background: teal; color: white;}
+#prevNextNav {background:beige; padding: 3px 0; border-top: 1px solid cadetblue;}
+#prevNextNav a {width: 65px; display: inline-block; text-align: center;}
+#bibEditTable tbody {border: 3px solid gray; border-width: 3px 0;}
+#bibEditTable tr {border: 1px solid gainsboro; border-width: 1px 0;}
+#bibEditTable tr.selectbox_ext {border-bottom: 0px solid gainsboro;}
+#bibEditTable tr.selectbox_ext+tr {border-top: 0px solid gainsboro;}
+
+
+/* blokace nepouzivanych elementu */
+
+ 
+
+div.portalbox,
+table.narrowsearchbox thead,
+div.pagefooterstriperight,
+a.footer,
+td.searchboxbody small,
+td.searchboxbody input[name=action_browse],
+select[name=f],
+td.latestadditionsboxrecordbody span.moreinfo a + a,
+#detailedrecordminipanelreview,
+ul.detailedrecordtabs li,
+div.detailedrecordboxcontent span.moreinfo,
+#bookmark,
+ul.detailedrecordactions li:nth-child(1),
+ul.detailedrecordactions li:nth-child(4),
+ul.detailedrecordactions li:nth-child(5)
+{
+display:none !important;
+}
+
+ul.detailedrecordactions li:nth-child(2) * {
+font-size: 10px;
+color: gray;
+}
+ul.detailedrecordactions li:nth-child(2) {
+display:none !important;
+margin-bottom: 15px !important;
+}
+ 
+ul.detailedrecordtabs li:first-child {
+display: block !important;
+}
+ul.detailedrecordactions li:nth-child(3) {
+}
+
+a.cardStatus0, a.cardStatus1, a.cardStatus2, a.cardStatus3 {
+font-size: 18px;
+} 
+span.cardStatus0, span.cardStatus1, span.cardStatus2, span.cardStatus3 {
+font-size: 12px;
+} 
+span.cardStatus0 {
+color: gray;
+}
+
+/* dalsi zmeny */
+
+/* protected input type checkbox je neviditelny: */
+tr.trbibEditCellContentProtected input {
+	display:none !important;
+}
+
+img.imgLink2 {
+	width:150px;
+}
+img.imgLink3 {
+	width:300px;
+}
+
+ul.supervisor_usersOverview {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+ul.supervisor_usersOverview li {
+	margin: 0px 0px 0px 0px;
+	padding: 5px 0px 5px 0px;
+	border-width: 0px 0px 1px 0px;
+	border-color: #AAAAAA;
+	border-style: solid;;
+	list-style-type: none;
+}
+
+span.supervisor_usercolls {
+	display: block;
+	margin: 0px 0px 0px 0px;
+	padding: 5px 0px 0px 0px;
+}
+
+a.uNameLink {
+	font-weight: normal;
+}
+
+span.supervisor_prog_notStarted {
+	color:violet;
+}
+span.supervisor_prog_started {
+	color:darkgreen;d
+}
+span.supervisor_prog_done {
+	color:green;
+}
+span.supervisor_prog_review a {
+	color:red;
+	font-weight: bold;
+}
