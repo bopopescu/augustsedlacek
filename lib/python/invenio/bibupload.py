@@ -480,6 +480,11 @@ def record_is_valid(record, pretend=None):
             write_message("    Neplatný záznam - pole 'Zahlavi - Kartotecni zaznam' chybí.<br/><br/>", stream=sys.stderr)
             return False
 
+        rec_190l = record_get_field_values(record, tag="190", ind1="%", ind2="%", code="l")
+        if len(rec_190l) != 1:
+            write_message("    Neplatný záznam - není správně uveden 'Jazyk textu' v poli 'Záhlaví - kartotéční záznam' (uveďte právě jeden výskyt).<br/><br/>", stream=sys.stderr)
+            return False
+
         fval_190a134 = record_get_field_values(record, tag="190", ind1="%", ind2="%", code="a") + record_get_field_values(record, tag="190", ind1="%", ind2="%", code="1") + record_get_field_values(record, tag="190", ind1="%", ind2="%", code="3") + record_get_field_values(record, tag="190", ind1="%", ind2="%", code="4")
         if len(fval_190a134) == 0:
             write_message("    Neplatný záznam - pole 'Zahlavi - Kartotecni zaznam' musí obsahovat alespoň 'Osobni jmeno' nebo 'Prijmi' nebo 'Predikat' nebo 'Domicil'.<br/><br/>", stream=sys.stderr)

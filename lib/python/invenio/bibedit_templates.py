@@ -391,7 +391,7 @@ def page_style():
 
                 #bibEditContent {
                     margin-left: 175px;
-                    width: 750px;
+                    width: 850px;
                 }
 
                 #bibEditContentTable {

@@ -30,7 +30,7 @@ CFG_WEBSTAT_CONFIG_PATH = CFG_ETCDIR + "/webstat/webstat.cfg"
 ## Dolezalova: 10
 ## invenio.autor: 12
 cfg_supervisors_groups = {
-	9: [18,15,9],
+	9: [18,15,9,33],
 	10: [14,20],
 	22: [13,21,26],
 	23: [16,25,27],

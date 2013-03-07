@@ -31,17 +31,17 @@ var gReady = true;
 
 function initInputHotkeys(input_element) {
     /* Binding of shortcuts for input elements */
-
     // Lauch autosuggest
-    $(input_element).bind('keydown', 'ctrl+shift+a', function (event)  { onAutosuggest(event); } );
+    $(input_element).bind('keydown', 'shift+down', function (event)  { onAutosuggest(event); } ); //TP: puvodne ctrl+shift+a
     // Save content and jump to next content field.
     $(input_element).bind('keydown', 'tab', onKeyTab);
     // Save content and jump to previous content field.
     $(input_element).bind('keydown', 'shift+tab', onKeyTab);
     // Add subfield in form.
-    $(input_element).bind('keydown', 'ctrl+shift+e', onKeyCtrlShiftE);
+    $(input_element).bind('keydown', 'ctrl+e', onKeyCtrlShiftE);
     // Remove subfield from form.
     $(input_element).bind('keydown', 'ctrl+shift+d', onKeyCtrlShiftD);
+
 }
 
 function initHotkeys() {

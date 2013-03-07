@@ -1121,7 +1121,7 @@ def perform_request_autocomplete(request_type, recid, uid, data):
             response['autokeyword'] = items
     if (request_type == 'autosuggest'):
         #call knowledge base function to put the suggestions in an array..
-        if fulltag and searchby and len(searchby) > 3:
+        if fulltag and searchby and len(searchby) > 0: #TP: originally 3, for augustsedlacek 0 will be safe too
             #add trailing '*' wildcard for 'search_unit_in_bibxxx()' if not already present
             suggest_values = get_kbd_values_for_bibedit(fulltag, "", searchby+"*")
             #remove ..

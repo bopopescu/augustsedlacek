@@ -174,7 +174,7 @@ CFG_BIBEDIT_FIELD_TEMPLATES_PATH = "%s%sbibedit%sfield_templates" % (CFG_ETCDIR,
 
 # CFG_BIBEDIT_AUTOSUGGEST_TAGS - for which tags the editor should try to autosuggest values
 # This is "safe" to have configured since it does not rely to a particular existing KB
-CFG_BIBEDIT_AUTOSUGGEST_TAGS = ['100__a']
+CFG_BIBEDIT_AUTOSUGGEST_TAGS = ['100__a','190__a','19000a','19001a','19010a','19011a','190__1','190001','190011','190101','190111','190__3','190003','190013','190103','190113','190__4','190004','190014','190104','190114','400__a','40000a','40001a','40010a','40011a','400__1','400001','400011','400101','400111','400__3','400003','400013','400103','400113','400__4','400004','400014','400104','400114','500__a','50000a','50001a','50010a','50011a','500__1','500001','500011','500101','500111','500__3','500003','500013','500103','500113','500__4','500004','500014','500104','500114','700__a','70000a','70001a','70010a','70011a','700__1','700001','700011','700101','700111','700__3','700003','700013','700103','700113','700__4','700004','700014','700104','700114','7112_c','7112_x','751__a','751__x','451__a','451__x','670__a']
 # CFG_BIBEDIT_AUTOCOMPLETE_TAGS_KBS - a dictionary whose keys are tags and values kb names
 # This is better left empty when in doubt
 CFG_BIBEDIT_AUTOCOMPLETE_TAGS_KBS = {} # { '65017a': 'SISC-65017a---65017a' }

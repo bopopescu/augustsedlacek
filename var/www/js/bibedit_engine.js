@@ -1988,6 +1988,7 @@ function addFieldAddSubfieldEditor(jQRowGroupID, fieldTmpNo, defaultCode, defaul
      defaultCode - the subfield code that will be displayed
      defaultValue - the value that will be displayed by default in the editor
   */
+
   var subfieldTmpNo = $(jQRowGroupID).data('freeSubfieldTmpNo');
   $(jQRowGroupID).data('freeSubfieldTmpNo', subfieldTmpNo+1);
 
@@ -2008,6 +2009,9 @@ function addFieldAddSubfieldEditor(jQRowGroupID, fieldTmpNo, defaultCode, defaul
       }
     }
   ).on("mouseup", function(e) { e.preventDefault(); });
+
+  initInputHotkeys($('#txtAddFieldValue_' + fieldTmpNo + '_' + subfieldTmpNo));//TP: KUA 3
+
   var contentEditorId = '#txtAddFieldValue_' + fieldTmpNo + '_' + subfieldTmpNo;
   $(contentEditorId).bind('keyup', function(e){
     onAddFieldValueKeyPressed(e, jQRowGroupID, fieldTmpNo, subfieldTmpNo);
@@ -2806,7 +2810,7 @@ function convertFieldIntoEditable(cell, shouldSelect){
               change.field_position == fieldPosition &&
               change.subfield_position != undefined &&
               change.subfield_position == subfieldIndex){
-            console.log('!7');
+           console.log('!7');
               addChangeControl(changeNum, true);
           }
         }
@@ -3078,12 +3082,26 @@ function onAutosuggest(event) {
   var select_id = 'select_'+tmpArray[1]+'_'+tmpArray[2]+'_'+tmpArray[3];
   var maintag = tmpArray[1], fieldPosition = tmpArray[2],
 	  subfieldIndex = tmpArray[3];
-  var field = gRecord[maintag][fieldPosition];
-  var subfieldcode = field[0][subfieldIndex][0];
-  var subtag1 = field[1];
-  var subtag2 = field[2];
-  //check if this an autosuggest or autocomplete field.
-  var fullcode = getMARC(maintag, fieldPosition, subfieldIndex);
+  //tp: tohle cele prekopano, nereagovalo to na input pri zadavani noveho pole
+  if (gRecord[maintag] !=null) {
+    var field = gRecord[maintag][fieldPosition];
+    var subfieldcode = field[0][subfieldIndex][0];
+    var subtag1 = field[1];
+    var subtag2 = field[2];
+    //check if this an autosuggest or autocomplete field.
+    var fullcode = getMARC(maintag, fieldPosition, subfieldIndex);
+  } else {
+    maintag = $('#txtAddFieldTag_'+tmpArray[1]).attr('value');
+    var subtag1 = $('#txtAddFieldInd1_'+tmpArray[1]).attr('value');
+    var subtag2 = $('#txtAddFieldInd2_'+tmpArray[1]).attr('value');
+    if (subtag1 == "" || subtag1 == " ") subtag1 = "_";
+    if (subtag2 == "" || subtag2 == " ") subtag2 = "_";
+    var subfieldcode = $('#txtAddFieldSubfieldCode_'+tmpArray[1]+'_'+tmpArray[2]).attr('value');;
+    fullcode = maintag+subtag1+subtag2+subfieldcode;
+    content_id = 'content_'+tmpArray[1]+'_'+tmpArray[2];
+    autosuggest_id = 'autosuggest_'+tmpArray[1]+'_'+tmpArray[2];
+    select_id = 'select_'+tmpArray[1]+'_'+tmpArray[2];
+  }
   var reqtype = ""; //autosuggest or autocomplete, according to tag..
   for (var i=0;i<gAUTOSUGGEST_TAGS.length;i++) {if (fullcode == gAUTOSUGGEST_TAGS[i]) {reqtype = "autosuggest"}}
   for (var i=0;i<gAUTOCOMPLETE_TAGS.length;i++) {if (fullcode == gAUTOCOMPLETE_TAGS[i]) {reqtype = "autocomplete"}}
@@ -3091,6 +3109,9 @@ function onAutosuggest(event) {
   if (reqtype == "") {
     return;
   }
+  //TP: temporarily overriden - we want the set of values independent of indicators (subtags)
+  var subtag1 = "%%";
+  var subtag2 = "%%";
 
   // Create Ajax request.
   var data = {
@@ -3138,7 +3159,7 @@ function onAutosuggest(event) {
             mysel = mysel+"</ul></td>"
             //add a stylish close link in case the user does not find
             //the value among the suggestions
-            mysel = mysel + "<td><form><input type='button' value='close' onClick='onAutosuggestSelect(\""+select_id+"-"+'\");></form></td>';
+            mysel = mysel + "<td><form><input type='button' value='close' onClick='onAutosuggestSelect(\""+select_id+"-"+"\");'></form></td>";
             mysel = mysel+"</tr></table>";
             //for (var i=0;i<suggestions.length;i++) { mysel = mysel + +suggestions[i]+ " "; }
             autosugg_in = document.getElementById(autosuggest_id);
@@ -3163,31 +3184,47 @@ function onAutosuggestSelect(selectidandselval) {
   var autosuggest_id = 'autosuggest_'+tmpArray[1]+'_'+tmpArray[2]+'_'+tmpArray[3];
   var content_t = document.getElementById(content_id); //table
   var content = null; //the actual text
-  //this is interesting, since if the user is browsing the list of selections by mouse,
-  //the autogrown form has disapperaed and there is only the table left.. so check..
-  if (content_t.innerHTML.indexOf("<form>") ==0) {
-     var content_f = null; //form
-     var content_ta = null; //textarea
-     if (content_t) {
-         content_f = content_t.firstChild; //form is the sub-elem of table
-     }
-     if (content_f) {
-         content_ta = content_f.firstChild; //textarea is the sub-elem of form
-     }
-     if (!(content_ta)) {return;}
-     content = content_ta;
-  } else {
-     content = content_t;
-  }
-  /*put value in place*/
-  if (selval) {
+  //TP: check if cintent_t exists, if not the suggestion is being performed when adding the subfield for the verz first time..
+  if (content_t!=null) {
+    //this is interesting, since if the user is browsing the list of selections by mouse,
+    //the autogrown form has disapperaed and there is only the table left.. so check..
+    //TP: this is how the making the field editable works (jQuery editable), its OK, but there was additional modification required
+    if (content_t.innerHTML.indexOf("<form>") ==0) {
+       var content_f = null; //form
+       var content_ta = null; //textarea
+       if (content_t) {
+           content_f = content_t.firstChild; //form is the sub-elem of table
+       }
+       if (content_f) {
+           content_ta = content_f.firstChild; //textarea is the sub-elem of form
+       }
+       if (!(content_ta)) {return;}
+       content = content_ta;
+    } else {
+       content = content_t;
+    }
+    if (selval) {
+      //TP: this is the original
       content.innerHTML = selval;
-      content.value = selval;
+      content.value = selval; //TP:??
+      //TP: if the content is not the textarea, we need to change the record content, not onlye the innerHTML of table cell
+      if (content == content_t) newVal = onContentChange(selval, content);
+    }
+      /*remove autosuggest box*/
+    var autosugg_in = document.getElementById(autosuggest_id);
+    autosugg_in.innerHTML = "";
+  } else {
+    //TP: this is for newly added subfield - assume no need to work with gRecord 
+    autosuggest_id = 'autosuggest_'+tmpArray[1]+'_'+tmpArray[2];
+    txt_id = 'txtAddFieldValue_'+tmpArray[1]+'_'+tmpArray[2];
+    var autosugg_in = document.getElementById(autosuggest_id);
+//    alert("sem to prijde: "+txt_id+" ... " + selval);
+    var txt_in = document.getElementById(txt_id);
+    txt_in.value = selval;
+    txt_in.focus();
+    autosugg_in.innerHTML = "";
   }
-  /*remove autosuggest box*/
-  var autosugg_in = document.getElementById(autosuggest_id);
-  autosugg_in.innerHTML = "";
-}
+ }
 
 function check_subjects_KB(value) {
     /*
@@ -3453,7 +3490,6 @@ function onContentChange(value, th) {
   setTimeout('$(' + idPrefix + tag + '_' + fieldPosition + '_' + subfieldIndex +
       '").effect("highlight", {color: gNEW_CONTENT_COLOR}, ' +
       'gNEW_CONTENT_COLOR_FADE_DURATION)', gNEW_CONTENT_HIGHLIGHT_DELAY);
-
   return newValue;
 }
 

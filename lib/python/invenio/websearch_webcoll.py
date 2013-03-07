@@ -460,7 +460,9 @@ class Collection:
             total = len(recIDs)
             to_display = min(rg, total)
 
-            for idx in range(total-1, total-to_display-1, -1):
+            #TP: we do not need latest additions in fact, we need the earliest additions, we should re-work this, but for now... 
+            #TP: for idx in range(total-1, total-to_display-1, 1): 
+            for idx in range(0, total-to_display, 1):
                 recid = recIDs[idx]
                 self.latest_additions_info.append({'id': recid,
                                                    'format': format_record(recid, of, ln=ln),
@@ -519,7 +521,7 @@ class Collection:
                     aas=aas, ln=ln, recids=passIDs, more_link=url, grid_layout=True)
 
             return websearch_templates.tmpl_instant_browse(
-                aas=aas, ln=ln, recids=passIDs, more_link=url)
+                aas=aas, ln=ln, recids=passIDs, more_link=url+"&so=a")
 
         return websearch_templates.tmpl_box_no_records(ln=ln)
 

@@ -148,10 +148,10 @@ function createRow(tag, ind1, ind2, subfieldCode, subfieldValue, fieldID,
       cellContentClass = 'bibEditCellContent';
       cellContentTitle = 'title="Click to edit" ';
       if (autosuggest || autokeyword) {
-          cellContentTitle = 'title="Click to edit (suggest values: ctrl-shift-a) " ';
+          cellContentTitle = 'title="Click to edit (suggest values: shift-down) " ';//TP: changed shortcut
       }
       if (autocomplete) {
-          cellContentTitle = 'title="Click to edit (complete values: ctrl-shift-a) " ';
+          cellContentTitle = 'title="Click to edit (complete values: shift-down) " ';//TP: changed shortcut
       }
       cellContentOnClick = 'onclick="onContentClick(this)" ';
     }
@@ -194,9 +194,11 @@ function createRow(tag, ind1, ind2, subfieldCode, subfieldValue, fieldID,
       cellContentTitle + autosuggestkeypress + cellContentOnClick + 'tabindex="0">' +
       subfieldValue +
       '</td>' +
-      '<td class="bibEditCellAddSubfields">' + btnAddSubfield + '</td>' +
+      '<td class="bibEditCellAddSubfields">' +
+      btnAddSubfield +
+      '</td>' +
       '</tr>';
-  /*add a place where the autosuggest box goes, if needed*/
+  /*add a place where the autosuggest box goes, if needed   */
   if (autosuggest || autokeyword) {
     myelement = myelement +
     '<tr><td></td><td></td><td></td><td></td><td tabindex="0" id="autosuggest_' + subfieldID + '">' + '<td></td></td></tr>';
@@ -758,6 +760,10 @@ function createAddFieldRow(fieldTmpNo, subfieldTmpNo, defaultCode, defaultValue,
           subfieldTmpNo, subfieldValues, '0') +'</div>'+      
     input('text', 'txtAddFieldValue_' + fieldTmpNo + '_' +
           subfieldTmpNo, 'bibEditTxtValue' + additionalClass, subfieldValueAttrs) +
+    '<div class="autosuggest_wide" id="autosuggest_' + fieldTmpNo + '_' + subfieldTmpNo + '"></div>' +
+//    input('text', 'autosuggest_' + fieldTmpNo + '_' +
+//          subfieldTmpNo, 'bibEditTxtValue' + additionalClass, '', 'autosuggest_' + fieldTmpNo + '_' +
+//          subfieldTmpNo) +
       '</td>' +
       '<td>' + btnAddFieldRemove + '</td>' +
     '</tr>';
@@ -1000,9 +1006,9 @@ function displayAlert(msgType, args){
       popUpType = 'confirm';
       break;
     case 'confirmInvalidOrEmptyInput':
-      msg =  'WARNING: Some subfields contain invalid MARC or are empty. \n' +
-  'Click Cancel to go back and correct. \n' +
-  'Click OK to ignore and continue (only valid subfields will be saved).';
+      msg =  'Warning: Some subfields contain invalid values or are empty. \n' +
+  'Click Cancel to correct the subfields. \n' +
+  'Click OK to ignore and continue (but only valid subfields will be saved).';
       popUpType = 'confirm';
       break;
     case 'confirmLeavingChangedRecord':

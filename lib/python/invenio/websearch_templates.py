@@ -1318,7 +1318,8 @@ class Template:
             out += """<td valign="top">%(link)s%(recs)s """ % {
                 'link': create_html_link(self.build_search_interface_url(c=son.name, ln=ln, aas=aas),
                                          {}, style_prolog + cgi.escape(son.get_name(ln)) + style_epilog),
-                'recs' : self.tmpl_nbrecs_info(son.nbrecs, ln=ln)}
+                'recs' : self.tmpl_nbrecs_info(son.nbrecs, ln=ln)} 
+
 
             # the following prints the "external collection" arrow just after the name and
             # number of records of the hosted collection
@@ -1482,7 +1483,12 @@ class Template:
         # load the right message language
         _ = gettext_set_language(ln)
 
-        body = '''<table class="latestadditionsbox">'''
+        body = ''
+        if more_link:
+            body += '<div align="right"><small>' + \
+                    create_html_link(more_link, {}, '[&gt;&gt; %s]' % _("more")) + \
+                    '</small></div>'
+        body += '''<table class="latestadditionsbox">'''
         if grid_layout:
             body += '<div>'
         for recid in recids:

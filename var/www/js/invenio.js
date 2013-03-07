@@ -2,13 +2,14 @@ $(document).ready(function() {
 
   /*
    * sorting
-   */
+  //TP: sergejovina, pryc s tim!!!
   var domain = 'https://' + document.domain + '/';
   $('body.home .narrowsearchbox td a').each(function() {
     var coll = $(this).text();
     var new_search = 'search?ln=en&cc='+coll+'&p=&f=&action_search=Search&c='+coll+'&c=&sf=&so=a&rm=&rg=10&sc=1&of=hb';
     $(this).attr('href', new_search);
   });
+   */
 
 
   /*

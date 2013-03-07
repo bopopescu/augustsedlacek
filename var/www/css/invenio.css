@@ -1,4 +1,4 @@
-x#bibEditTable {table-layout: auto !important;}
+#bibEditTable {table-layout: auto !important;}
 #rowGroup_003_0, #rowGroup_005_0, #rowGroup_008_0, #boxField_001_0 {display: none;}
 #rowGroup_001_0 {background: teal; color: white;}
 #prevNextNav {background:beige; padding: 3px 0; border-top: 1px solid cadetblue;}
@@ -20,7 +20,6 @@ a.footer,
 td.searchboxbody small,
 td.searchboxbody input[name=action_browse],
 select[name=f],
-td.latestadditionsboxrecordbody span.moreinfo a + a,
 #detailedrecordminipanelreview,
 ul.detailedrecordtabs li,
 div.detailedrecordboxcontent span.moreinfo,
@@ -99,7 +98,7 @@ span.supervisor_prog_notStarted {
 	color:violet;
 }
 span.supervisor_prog_started {
-	color:darkgreen;d
+	color:darkgreen;
 }
 span.supervisor_prog_done {
 	color:green;
@@ -107,4 +106,26 @@ span.supervisor_prog_done {
 span.supervisor_prog_review a {
 	color:red;
 	font-weight: bold;
+}
+
+a.cardStatuspřepsané, a.cardStatusnepřepsané, a.cardStatusna {
+	display:block;
+	padding-top: 5px;
+	font-size:18px !important;
+}
+a.cardStatusnepřepsané, a.cardStatusna {
+	font-weight: bold;
+}
+span.cardStatuspřepsané, span.cardStatusnepřepsané, span.cardStatusna {
+	font-size: 10px;
+	padding-bottom: 5px;
+}
+a.cardStatuspřepsané, span.cardStatuspřepsané {
+	color: black;
+}
+a.cardStatusnepřepsané, span.cardStatusnepřepsané {
+	color: blue;
+}
+a.cardStatusna, span.cardStatusna {
+	color: red;
 }
