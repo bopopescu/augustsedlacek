@@ -10,9 +10,19 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Zahlavi - Kartotecni zaznam",
-  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["w","VOLATILE: Typ jmena"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
-//  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["w","VOLATILE: Typ jmena"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["y","VOLATILE: Datace - z kartoteky"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["c","VOLATILE: Tituly"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"]],
+//  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["w","VOLATILE: Typ jmena"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
   tag : "190"
+};
+userFieldTemplates[counter++] = 
+{
+  description : "field 700",
+  ind1 : " ",
+  ind2 : " ",
+  isControlfield : false,
+  name : "Osobni jmeno - Propojeni",
+  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["c","VOLATILE: Tituly"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"]],
+  tag : "700"
 };
 userFieldTemplates[counter++] = 
 {
@@ -21,7 +31,7 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Variantni jmeno",
-  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["w","VOLATILE: Typ jmena"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["c","VOLATILE: Tituly"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"]],
   tag : "400"
 };
 userFieldTemplates[counter++] = 
@@ -31,48 +41,8 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Alternativni jmeno",
-  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["w","VOLATILE: Typ jmena"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["c","VOLATILE: Tituly"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"]],
   tag : "500"
-};
-userFieldTemplates[counter++] = 
-{
-  description : "field 667",
-  ind1 : " ",
-  ind2 : " ",
-  isControlfield : false,
-  name : "Neverejna poznamka",
-  subfields : [["a","VOLATILE: Neverejna poznamka"]],
-  tag : "667"
-};
-userFieldTemplates[counter++] = 
-{
-  description : "field 670",
-  ind1 : " ",
-  ind2 : " ",
-  isControlfield : false,
-  name : "Citace",
-  subfields : [["a","VOLATILE: Citace"],["b","VOLATILE: Nalezena informace"],["x","VOLATILE: Cislo strany (svazku)"],["y","VOLATILE: Citace - zkratka"],["z","VOLATILE: Interni revokace"],["5","VOLATILE: Typ zdrojoveho dokumentu"],["9","VOLATILE: Mira nejistoty"],["l","VOLATILE: Jazyk textu"]],
-  tag : "670"
-};
-userFieldTemplates[counter++] = 
-{
-  description : "field 678",
-  ind1 : " ",
-  ind2 : " ",
-  isControlfield : false,
-  name : "Biografie",
-  subfields : [["a","VOLATILE: Biografie"]],
-  tag : "678"
-};
-userFieldTemplates[counter++] = 
-{
-  description : "field 680",
-  ind1 : " ",
-  ind2 : " ",
-  isControlfield : false,
-  name : "Poznamky",
-  subfields : [["i","VOLATILE: Poznamka"]],
-  tag : "680"
 };
 userFieldTemplates[counter++] = 
 {
@@ -86,13 +56,13 @@ userFieldTemplates[counter++] =
 };
 userFieldTemplates[counter++] = 
 {
-  description : "field 700",
+  description : "field 670",
   ind1 : " ",
   ind2 : " ",
   isControlfield : false,
-  name : "Osobni jmeno - Propojeni",
-  subfields : [["a","VOLATILE: Osobni jmeno"],["1","VOLATILE: Prijmi / Prijmeni"],["w","VOLATILE: Typ jmena"],["3","VOLATILE: Predikat"],["4","VOLATILE: Domicil"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["v","VOLATILE: Pribuzenske vztahy"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
-  tag : "700"
+  name : "Citace",
+  subfields : [["a","VOLATILE: Citace"],["b","VOLATILE: Nalezena informace"],["x","VOLATILE: Cislo strany (svazku)"],["y","VOLATILE: Citace - zkratka"],["z","VOLATILE: Interni revokace"],["5","VOLATILE: Typ zdrojoveho dokumentu"],["9","VOLATILE: Mira nejistoty"],["l","VOLATILE: Jazyk textu"]],
+  tag : "670"
 };
 userFieldTemplates[counter++] = 
 {
@@ -101,7 +71,8 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Udalost - propojeni",
-  subfields : [["a","VOLATILE: Udalost"],["c","VOLATILE: Misto konani"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Udalost"],["c","VOLATILE: Misto konani"],["y","VOLATILE: Datace - z kartoteky"],["x","VOLATILE: Zpresneni"]],
+//  subfields : [["a","VOLATILE: Udalost"],["c","VOLATILE: Misto konani"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
   tag : "711"
 };
 userFieldTemplates[counter++] = 
@@ -111,7 +82,7 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Mistni nazev - propojeni",
-  subfields : [["a","VOLATILE: Mistni nazev"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Mistni nazev"],["y","VOLATILE: Datace - z kartoteky"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"]],
   tag : "751"
 };
 userFieldTemplates[counter++] = 
@@ -121,9 +92,38 @@ userFieldTemplates[counter++] =
   ind2 : " ",
   isControlfield : false,
   name : "Variantní místní název",
-  subfields : [["a","VOLATILE: Mistni nazev"],["y","VOLATILE: Datace - z kartoteky"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
-//  subfields : [["a","VOLATILE: Mistni nazev"],["d","VOLATILE: Datace - mimo kartoteku"],["x","VOLATILE: Zpresneni"],["y","VOLATILE: Datace - z kartoteky"],["l","VOLATILE: Jazyk textu"],["9","VOLATILE: Mira nejistoty"]],
+  subfields : [["a","VOLATILE: Mistni nazev"],["y","VOLATILE: Datace - z kartoteky"],["x","VOLATILE: Zpresneni"],["l","VOLATILE: Jazyk textu"]],
   tag : "451"
+};
+userFieldTemplates[counter++] = 
+{
+  description : "field 680",
+  ind1 : " ",
+  ind2 : " ",
+  isControlfield : false,
+  name : "Poznamky",
+  subfields : [["i","VOLATILE: Poznamka"]],
+  tag : "680"
+};
+userFieldTemplates[counter++] = 
+{
+  description : "field 678",
+  ind1 : " ",
+  ind2 : " ",
+  isControlfield : false,
+  name : "Biografie",
+  subfields : [["a","VOLATILE: Biografie"]],
+  tag : "678"
+};
+userFieldTemplates[counter++] = 
+{
+  description : "field 667",
+  ind1 : " ",
+  ind2 : " ",
+  isControlfield : false,
+  name : "Neverejna poznamka",
+  subfields : [["a","VOLATILE: Neverejna poznamka"]],
+  tag : "667"
 };
 
 var fieldName = '';
@@ -134,26 +134,21 @@ userFieldOptions = new Object();
 userFieldOptions = {
   fields : {
     '0' : {value : '', description : 'choose field'},
-//    '040' : {value : '040', description : 'Autor záznamu'},
-    '190' : {value : '190', description : 'Záhlaví - Kartotéční záznam'},
-    '400' : {value : '400', description : 'Variantní jméno'},
-    '500' : {value : '500', description : 'Alternativní jméno'},
-    '667' : {value : '667', description : 'Neverejna poznamka'},
     '670' : {value : '670', description : 'Citace'},
-    '675' : {value : '675', description : 'Negativní citace'},
-    '678' : {value : '678', description : 'Biografie'},
-    '680' : {value : '680', description : 'Poznámky'},
-    '690' : {value : '690', description : 'Heraldické údaje'},
-    '700' : {value : '700', description : 'Osobní jméno - propojeni'},
     '711' : {value : '711', description : 'Udalost - propojeni'},
     '751' : {value : '751', description : 'Mistni nazev - propojeni'},
     '451' : {value : '451', description : 'Variantni mistni nazev'},
-//    '856' : {value : '856', description : 'Obrazek'},
-    '956' : {value : '856', description : 'Obrazek_956'},
-//    '906' : {value : '906', description : 'Interní údaje o zpracování'},
+    '690' : {value : '690', description : 'Heraldické údaje'},
+    '700' : {value : '700', description : 'Osobní jméno - propojeni'},
+    '680' : {value : '680', description : 'Poznámky'},
+    '678' : {value : '678', description : 'Biografie'},
+    '667' : {value : '667', description : 'Neverejna poznamka'},
+    '190' : {value : '190', description : 'Záhlaví - Kartotéční záznam'},
+    '400' : {value : '400', description : 'Variantní jméno'},
+    '500' : {value : '500', description : 'Alternativní jméno'},
+    '675' : {value : '675', description : 'Negativní citace'},
+    '956' : {value : '856', description : 'Obrazek'},
     '950' : {value : '950', description : 'Status'},
-//    '970' : {value : '970', description : 'Identifikator KZ'},
-//    '980' : {value : '980', description : 'Identifikator zasuvky'}
   },
   subfields : {
     '0' : {
@@ -383,17 +378,18 @@ function getSubfieldValues(code) {
       values = {
         '0' : {value : '', description : 'choose value'},
         '1' : {value : 'arcivévoda/arcivévodkyně', description : 'arcivévoda/arcivévodkyně'},
-        '2' : {value : 'císař/císařovna', description : 'císař/císařovna'},
-        '3' : {value : 'hrabě/hraběnka', description : 'hrabě/hraběnka'},
-        '4' : {value : 'kníže/kněžna', description : 'kníže/kněžna'},
-        '5' : {value : 'král/královna', description : 'král/královna'},
-        '6' : {value : 'landkrabě/landkraběnka', description : 'landkrabě/landkraběnka'},
-        '7' : {value : 'man/leník', description : 'man/leník'},
-        '8' : {value : 'markrabě/markraběnka', description : 'markrabě/markraběnka'},
-        '9' : {value : 'měšťan/měšťanka', description : 'měšťan/měšťanka'},
-        '10' : {value : 'pán/paní', description : 'pán/paní'},
-        '11' : {value : 'rytíř/vladyka', description : 'rytíř/vladyka'},
-        '12' : {value : 'vévoda/vévodkyně', description : 'vévoda/vévodkyně'}
+        '2' : {value : 'baron/baronka', description : 'baron/baronka'},
+        '3' : {value : 'císař/císařovna', description : 'císař/císařovna'},
+        '4' : {value : 'hrabě/hraběnka', description : 'hrabě/hraběnka'},
+        '5' : {value : 'kníže/kněžna', description : 'kníže/kněžna'},
+        '6' : {value : 'král/královna', description : 'král/královna'},
+        '7' : {value : 'landkrabě/landkraběnka', description : 'landkrabě/landkraběnka'},
+        '8' : {value : 'man/leník', description : 'man/leník'},
+        '9' : {value : 'markrabě/markraběnka', description : 'markrabě/markraběnka'},
+        '10' : {value : 'měšťan/měšťanka', description : 'měšťan/měšťanka'},
+        '11' : {value : 'pán/paní', description : 'pán/paní'},
+        '12' : {value : 'rytíř/vladyka', description : 'rytíř/vladyka'},
+        '13' : {value : 'vévoda/vévodkyně', description : 'vévoda/vévodkyně'}
       }
       break;
     case '400w':
@@ -557,25 +553,25 @@ function getSubfieldValues(code) {
         '12' : {value : 'CDL ', description : 'CDL '},
         '13' : {value : 'CDM ', description : 'CDM '},
         '14' : {value : 'ČČM ', description : 'ČČM '},
-        '15' : {value : 'ČČM ', description : 'ČČM '},
-        '16' : {value : 'ČČM ', description : 'ČČM '},
-        '17' : {value : 'Č. Sp. P. ', description : 'Č. Sp. P. '},
-        '18' : {value : 'DB', description : 'DB'},
-        '19' : {value : 'DD', description : 'DD'},
-        '20' : {value : 'DO', description : 'DO'},
-        '21' : {value : 'DZ', description : 'DZ'},
-        '22' : {value : 'Dačický ', description : 'Dačický '},
-        '23' : {value : 'Demuth G. d. L. ', description : 'Demuth G. d. L. '},
-        '24' : {value : 'Dobner Mon. ', description : 'Dobner Mon. '},
-        '25' : {value : 'Dörr der Adel ', description : 'Dörr der Adel '},
-        '26' : {value : 'Dvorský Paměti žen ', description : 'Dvorský Paměti žen '},
-        '27' : {value : 'Emler Tab. vet. ', description : 'Emler Tab. vet. '},
-        '28' : {value : 'Emler urbáře ', description : 'Emler urbáře '},
-        '29' : {value : 'Font. r. Boh. ', description : 'Font. r. Boh. '},
-        '30' : {value : 'Glafey Anecd. ', description : 'Glafey Anecd. '},
-        '31' : {value : 'Glatzer Gesch. ', description : 'Glatzer Gesch. '},
-        '32' : {value : 'Goll Čechy a Prusy ', description : 'Goll Čechy a Prusy '},
-        '33' : {value : 'Heber´s Burgen ', description : 'Heber´s Burgen '},
+        '15' : {value : 'Č. Sp. P. ', description : 'Č. Sp. P. '},
+        '16' : {value : 'DB', description : 'DB'},
+        '17' : {value : 'DD', description : 'DD'},
+        '18' : {value : 'DO', description : 'DO'},
+        '19' : {value : 'DZ', description : 'DZ'},
+        '20' : {value : 'DZm', description : 'DZm'},
+        '21' : {value : 'Dačický ', description : 'Dačický '},
+        '22' : {value : 'Demuth G. d. L. ', description : 'Demuth G. d. L. '},
+        '23' : {value : 'Dobner Mon. ', description : 'Dobner Mon. '},
+        '24' : {value : 'Dörr der Adel ', description : 'Dörr der Adel '},
+        '25' : {value : 'Dvorský Paměti žen ', description : 'Dvorský Paměti žen '},
+        '26' : {value : 'Emler Tab. vet. ', description : 'Emler Tab. vet. '},
+        '27' : {value : 'Emler urbáře ', description : 'Emler urbáře '},
+        '28' : {value : 'Font. r. Boh. ', description : 'Font. r. Boh. '},
+        '29' : {value : 'Glafey Anecd. ', description : 'Glafey Anecd. '},
+        '30' : {value : 'Glatzer Gesch. ', description : 'Glatzer Gesch. '},
+        '31' : {value : 'Goll Čechy a Prusy ', description : 'Goll Čechy a Prusy '},
+        '32' : {value : 'Heber´s Burgen ', description : 'Heber´s Burgen '},
+        '33' : {value : 'HKA ', description : 'HKA'},
         '34' : {value : 'Höfler ', description : 'Höfler '},
         '35' : {value : 'Chlumecký Reg. ', description : 'Chlumecký Reg. '},
         '36' : {value : 'Jirečk. Ruk. ', description : 'Jirečk. Ruk. '},
@@ -679,35 +675,38 @@ function getSubfieldValues(code) {
     case '711a':
       values = {
         '0' : {value : '', description : 'choose value'},
-        '1' : {value : 'dědictví / dělení pozůstalosti', description : 'dědictví / dělení pozůstalosti'},
-        '2' : {value : 'dluh/půjčka', description : 'dluh/půjčka'},
-        '3' : {value : 'donace/nadace', description : 'donace/nadace'},
-        '4' : {value : 'inkolát', description : 'inkolát'},
-        '5' : {value : 'konfirmace', description : 'konfirmace'},
-        '6' : {value : 'křest', description : 'křest'},
-        '7' : {value : 'narození', description : 'narození'},
-        '8' : {value : 'nobilitace', description : 'nobilitace'},
-        '9' : {value : 'odúmrť', description : 'odúmrť'},
-        '10' : {value : 'opověď', description : 'opověď'},
-        '11' : {value : 'patronát / patronátní právo', description : 'patronát / patronátní právo'},
-        '12' : {value : 'pohřeb', description : 'pohřeb'},
-        '13' : {value : 'poručenství', description : 'poručenství'},
-        '14' : {value : 'privilegium', description : 'privilegium'},
-        '15' : {value : 'prodej/koupě', description : 'prodej/koupě'},
-        '16' : {value : 'příměří', description : 'příměří'},
-        '17' : {value : 'půhon/soudní pře/nález', description : 'půhon/soudní pře/nález'},
-        '18' : {value : 'rukojmí / rukojemství', description : 'rukojmí / rukojemství'},
-        '19' : {value : 'smlouva', description : 'smlouva'},
-        '20' : {value : 'sňatek', description : 'sňatek'},
-        '21' : {value : 'sněm/sjezd', description : 'sněm/sjezd'},
-        '22' : {value : 'svatební smlouva', description : 'svatební smlouva'},
-        '23' : {value : 'svědek', description : 'svědek'},
-        '24' : {value : 'testament', description : 'testament'},
-        '25' : {value : 'úmrtí', description : 'úmrtí'},
-        '26' : {value : 'věnná zástava', description : 'věnná zástava'},
-        '27' : {value : 'zástava', description : 'zástava'},
-        '28' : {value : 'zmínka (prostá)', description : 'zmínka (prostá)'},
-        '29' : {value : 'jiné', description : 'jiné'}
+        '1' : {value : 'delikt', description : 'delikt'},
+        '2' : {value : 'dědictví / dělení pozůstalosti', description : 'dědictví / dělení pozůstalosti'},
+        '3' : {value : 'dluh/půjčka', description : 'dluh/půjčka'},
+        '4' : {value : 'donace/nadace', description : 'donace/nadace'},
+        '5' : {value : 'inkolát', description : 'inkolát'},
+        '6' : {value : 'konfirmace', description : 'konfirmace'},
+        '7' : {value : 'křest', description : 'křest'},
+        '8' : {value : 'léno', description : 'léno'},
+        '9' : {value : 'narození', description : 'narození'},
+        '10' : {value : 'nobilitace', description : 'nobilitace'},
+        '11' : {value : 'odúmrť', description : 'odúmrť'},
+        '12' : {value : 'opověď', description : 'opověď'},
+        '13' : {value : 'patronát / patronátní právo', description : 'patronát / patronátní právo'},
+        '14' : {value : 'pohřeb', description : 'pohřeb'},
+        '15' : {value : 'poručenství', description : 'poručenství'},
+        '16' : {value : 'privilegium', description : 'privilegium'},
+        '17' : {value : 'prodej/koupě', description : 'prodej/koupě'},
+        '18' : {value : 'příměří', description : 'příměří'},
+        '19' : {value : 'půhon/soudní pře/nález', description : 'půhon/soudní pře/nález'},
+        '20' : {value : 'rukojmí / rukojemství', description : 'rukojmí / rukojemství'},
+        '21' : {value : 'smlouva', description : 'smlouva'},
+        '22' : {value : 'sňatek', description : 'sňatek'},
+        '23' : {value : 'sněm/sjezd', description : 'sněm/sjezd'},
+        '24' : {value : 'studium', description : 'studium'},
+        '25' : {value : 'svatební smlouva', description : 'svatební smlouva'},
+        '26' : {value : 'svědek', description : 'svědek'},
+        '27' : {value : 'testament / list mocný', description : 'testament / list mocný'},
+        '28' : {value : 'úmrtí', description : 'úmrtí'},
+        '29' : {value : 'věnná zástava', description : 'věnná zástava'},
+        '30' : {value : 'zástava', description : 'zástava'},
+        '31' : {value : 'zmínka (prostá)', description : 'zmínka (prostá)'},
+        '32' : {value : 'jiné', description : 'jiné'}
       }
       break;
     case '8561':

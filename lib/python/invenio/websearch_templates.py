@@ -1464,7 +1464,7 @@ class Template:
         return _("This collection does not contain any document yet.")
 
 
-    def tmpl_instant_browse(self, aas, ln, recids, more_link=None, grid_layout=False):
+    def tmpl_instant_browse(self, aas, ln, recids, more_link=None, img_link=None, grid_layout=False):
         """
           Formats a list of records (given in the recids list) from the database.
 
@@ -1484,9 +1484,13 @@ class Template:
         _ = gettext_set_language(ln)
 
         body = ''
+        if img_link:
+            body += '<div class="quickFromCollImage" align="right"><small>' + \
+                    create_html_link(img_link, {'of':'hi','rg':25,'jrec':1,"so":"a"}, '[%s]' % _("all cards")) + \
+                    '</small></div>'
         if more_link:
-            body += '<div align="right"><small>' + \
-                    create_html_link(more_link, {}, '[&gt;&gt; %s]' % _("more")) + \
+            body += '<div class="quickFromCollMore" align="right"><small>' + \
+                    create_html_link(more_link, {"so":"a"}, '[&gt;&gt; %s]' % _("more")) + \
                     '</small></div>'
         body += '''<table class="latestadditionsbox">'''
         if grid_layout:

@@ -113,7 +113,7 @@ a.cardStatuspřepsané, a.cardStatusnepřepsané, a.cardStatusna {
 	padding-top: 5px;
 	font-size:18px !important;
 }
-a.cardStatusnepřepsané, a.cardStatusna {
+a.cardStatusnepřepsané, a.cardStatusna, span.cardStatusnepřepsané, span.cardStatusna {
 	font-weight: bold;
 }
 span.cardStatuspřepsané, span.cardStatusnepřepsané, span.cardStatusna {
@@ -128,4 +128,57 @@ a.cardStatusnepřepsané, span.cardStatusnepřepsané {
 }
 a.cardStatusna, span.cardStatusna {
 	color: red;
+}
+
+h2.preview {
+	padding:0px;
+	margin: 10px 0px 0px 0px;
+}
+h3.preview {
+	padding:0px;
+	margin: 10px 0px 0px 0px;
+} 
+h2.references, h2.preview {
+	display:none;
+}
+span.cardStatusPreview {
+	font-weight: bold;
+	font-size: 18px;
+}
+div.ui-dialog-content p span div {
+/* blokace references u submit preview - jinde jsem to ennasel */
+	display:none;
+}
+
+div.cardsImageOnly {
+	display:inline-block;
+	white-space:nowrap;
+	margin-top: 5px;
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+}
+div.cardsImageOnly img {
+	margin: 10px;
+	background-color: transparent;
+}
+div.cardStatuspřepsané {
+	border-color: black;
+}
+div.cardStatusnepřepsané {
+	border-color: blue;
+}
+div.cardStatusna {
+	border-color: red;
+}
+div.cardsImageOnly a {
+	font-size: 10px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+div.quickFromCollMore {
+}
+div.quickFromCollImage {
+	float:left;
 }

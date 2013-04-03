@@ -442,7 +442,7 @@ def bibupload(record, opt_tag=None, opt_mode=None,
             update_database_with_metadata(original_record, rec_id, oai_rec_id, pretend=pretend)
             write_message("   Restored original record", verbose=1, stream=sys.stderr)
 
-def record_is_valid(record, pretend=None):
+def record_is_valid(record, pretend=False):
     """
     Check if the record is valid. Currently this simply checks if the record
     has exactly one rec_id.
@@ -689,17 +689,17 @@ def record_is_valid(record, pretend=None):
                 lid = lid - 1
 
         
-    if not pretend:
-        count_999 = record_count_fields(record, tag="999")
-        if count_999 == 0 and (rec_status[0] == '2' or rec_status[0].startswith('p')):
-            tt = ("t",time.strftime("%Y-%m-%d %H:%M:%S")),("u",task_get_task_param('user'))
-            record_add_field(record, "999", ind1=' ', ind2=' ', subfields=tt)
-            from invenio.webstat import register_customevent
-            from invenio.webuser import get_email_from_username, get_user_info, get_uid_from_email
-            email=str(get_email_from_username(task_get_task_param('user')))
-            uid=get_uid_from_email(email)
-            collname=record_get_field_values(record, tag="980", ind1="%", ind2="%", code="a")
-            register_customevent("cardStructured", [uid, email, collname[0],rec_ids[0]])
+        if not pretend:
+            count_999 = record_count_fields(record, tag="999")
+            if count_999 == 0 and (rec_status[0] == '2' or rec_status[0].startswith('p')):
+                tt = ("t",time.strftime("%Y-%m-%d %H:%M:%S")),("u",task_get_task_param('user'))
+                record_add_field(record, "999", ind1=' ', ind2=' ', subfields=tt)
+                from invenio.webstat import register_customevent
+                from invenio.webuser import get_email_from_username, get_user_info, get_uid_from_email
+                email=str(get_email_from_username(task_get_task_param('user')))
+                uid=get_uid_from_email(email)
+                collname=record_get_field_values(record, tag="980", ind1="%", ind2="%", code="a")
+                register_customevent("cardStructured", [uid, email, collname[0],rec_ids[0]])
 
     
 #    write_message("KUA", stream=sys.stderr)

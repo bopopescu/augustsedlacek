@@ -1283,12 +1283,12 @@ def _get_formated_record(record, new_window):
                                          of="hb",
                                          xml_record=xml_record) + "<br />"
 
-    result += "<br /><h2> Detailed format preview </h2><br />"
+    result += "<h2 class='preview'> Detailed format preview </h2>"
     result += bibformat.format_record(recID=None,
                                       of="hd",
                                       xml_record=xml_record)
     #Preview references
-    result += "<br /><h2> References </h2><br />"
+    result += "<h2 class='references'> References </h2>"
 
     result += bibformat.format_record(0,
                                     'hdref',

@@ -2002,10 +2002,18 @@ function addFieldAddSubfieldEditor(jQRowGroupID, fieldTmpNo, defaultCode, defaul
     $('#rowAddField_' + this.id.slice(this.id.indexOf('_')+1)).remove();
   });
   $('#txtAddFieldValue_' + fieldTmpNo + '_' + subfieldTmpNo).on(
-    'focus', function(e){
+    'xchange', function(e){ //TP: we dont want to save volatile values unless they change..
       if ($(this).hasClass('bibEditVolatileSubfield')){
-        $(this).select();
         $(this).removeClass("bibEditVolatileSubfield");
+      }
+    }
+  ).on(
+    'keydown', function(e){ //TP: we dont want to save volatile values unless they change..
+      if (e.which != 13) {
+        if ($(this).hasClass('bibEditVolatileSubfield')){
+          $(this).select();
+          $(this).removeClass("bibEditVolatileSubfield");
+        }
       }
     }
   ).on("mouseup", function(e) { e.preventDefault(); });
@@ -5494,7 +5502,7 @@ function adNewImageField(url,label) { //TP:
 
 function draw_ImagesThumbs(url, label) { //TP: 
   $('#bibEditContentTable')
-    .append("<a title='"+url+"' href='/datastorage/" + url + "' onClick='return false;' class='imgLink' style='display:inline-block;'><img src='/datastorage/" + url + "' height='100' /></a>") //TP: toto predelat, at je datastorage dir definovan jako konstanta v conf
+    .append("<a title='"+url+"' href='/datastorage/" + url + "' onClick='return false;' class='imgLink' style='display:inline-block;'><img src='/datastorage/" + url + "' height='200' /></a>") //TP: toto predelat, at je datastorage dir definovan jako konstanta v conf
 }
 
 function checkVersionNumbers(js,py) {

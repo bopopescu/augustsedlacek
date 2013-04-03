@@ -1266,7 +1266,7 @@ function addContentToDialog(dialog, html_content, alertText){
   dialog.contentParagraph.before(dialog.iconSpan);
   dialog.contentParagraph.removeClass('dialog-box-centered');
   dialog.contentSpan.html("<strong>" + alertText + "</strong>\n\
-                    <br /><br />" + html_content);
+                    " + html_content);
 }
 
 /*

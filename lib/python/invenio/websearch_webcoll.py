@@ -520,8 +520,10 @@ class Collection:
                 return websearch_templates.tmpl_instant_browse(
                     aas=aas, ln=ln, recids=passIDs, more_link=url, grid_layout=True)
 
+            urlimg = websearch_templates.build_search_url(cc=self.name, jrec=1, ln=ln, aas=aas)
+#            return websearch_templates.tmpl_instant_browse(aas=aas, ln=ln, recids=sIDs, img_link=urlimg, more_link=url)
             return websearch_templates.tmpl_instant_browse(
-                aas=aas, ln=ln, recids=passIDs, more_link=url+"&so=a")
+                aas=aas, ln=ln, recids=passIDs, img_link=urlimg, more_link=url)
 
         return websearch_templates.tmpl_box_no_records(ln=ln)
 

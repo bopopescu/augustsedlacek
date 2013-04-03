@@ -415,7 +415,10 @@ def create_url(urlbase, urlargd, escape_urlargd=True):
     separator = '&amp;'
     output = urlbase
     if urlargd:
-        output += '?'
+        if not "?" in output:
+            output += '?'
+        else:
+            output += '&'
         if escape_urlargd:
             arguments = [escape(quote(str(key)), quote=True) + '=' + \
                          escape(quote(str(urlargd[key])), quote=True)
