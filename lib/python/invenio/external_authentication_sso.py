@@ -33,8 +33,8 @@ CFG_EXTERNAL_AUTH_HIDDEN_SETTINGS = ('auth', 'respccid', 'personid')
 CFG_EXTERNAL_AUTH_HIDDEN_GROUPS = (
     'All Exchange People',
     'CERN Users',
-    'cern-computing-postmasters',
-    'cern-nice2000-postmasters',
+    'cern-computing-postmains',
+    'cern-nice2000-postmains',
     'CMF FrontEnd Users',
     'CMF_NSC_259_NSU',
     'Domain Users',

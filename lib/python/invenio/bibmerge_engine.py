@@ -144,7 +144,7 @@ def perform_request_record(requestType, uid, data):
             spec_name = 'bibedit_merge'
         if data.has_key('duplicate'):
             recid2 = data['duplicate']
-            record2 = _get_record_slave(recid2, result, 'recid', uid)
+            record2 = _get_record_subordinate(recid2, result, 'recid', uid)
             if result['resultCode'] != 0: #return in case of error
                 return result
             # mark record2 as deleted
@@ -175,7 +175,7 @@ def perform_request_record(requestType, uid, data):
 
     recid2 = data["recID2"]
     mode = data['record2Mode']
-    record2 = _get_record_slave(recid2, result, mode, uid)
+    record2 = _get_record_subordinate(recid2, result, mode, uid)
     if result['resultCode'] != 0: #if record not accessible return error information
         return result
 
@@ -226,7 +226,7 @@ def perform_request_update_record(requestType, uid, data):
     redo_list = []
 
     mode = data['record2Mode']
-    record2 = _get_record_slave(recid2, result, mode, uid)
+    record2 = _get_record_subordinate(recid2, result, mode, uid)
     if result['resultCode'] != 0: #if record not accessible return error information
         return result
 
@@ -307,7 +307,7 @@ def perform_small_request_update_record(requestType, uid, data):
     disabled_hp_changes = cache_content[4]
 
     mode = data['record2Mode']
-    record2 = _get_record_slave(recid2, result, mode, uid)
+    record2 = _get_record_subordinate(recid2, result, mode, uid)
     if result['resultCode'] != 0: #if record not accessible return error information
         return result
 
@@ -370,7 +370,7 @@ def _get_record(recid, uid, result, fresh_record=False):
         result['resultCode'], result['resultText'], result['cacheDirty'], result['cacheMTime'] = 0, 'Record OK', cache_dirty, mtime
     return record
 
-def _get_record_slave(recid, result, mode=None, uid=None):
+def _get_record_subordinate(recid, result, mode=None, uid=None):
     """Check if record exists and return it in dictionary format.
        If any kind of error occurs returns None.
        If mode=='revision' then recid parameter is considered as revid."""
